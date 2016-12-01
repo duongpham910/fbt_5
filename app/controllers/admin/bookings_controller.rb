@@ -25,11 +25,14 @@ class Admin::BookingsController < Admin::ApplicationController
     else
       if @booking.update_attributes booking_params
         if @booking.reject? && status_before == "waiting_pay"
+          @booking.send_cancel_email
           flash[:success] = t "flash.bookings.booking_canceled"
         elsif @booking.reject? && status_before == "paid"
           @booking.payment.process_refund
+          @booking.send_refund_email
           flash[:success] = t "flash.bookings.booking_rejected"
         else
+          @booking.send_approve_email
           flash[:success] = t "flash.bookings.booking_approved"
         end
         redirect_to admin_bookings_path

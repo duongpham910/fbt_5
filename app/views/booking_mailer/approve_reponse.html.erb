@@ -1,0 +1,19 @@
+<p><%= t "booking_mailer.framgia" %></p>
+<p><%= t "booking_mailer.address" %><p>
+
+<%= l Time.now %>
+
+<p><%= t "booking_mailer.hi" %> <%= @booking.user.name %>,</p>
+
+<p><%= t ".header" %></p>
+
+<p><%= t ".content" %></p>
+
+<p><%= t ".tour" %><%= @booking.tour_date.tour.name %></p>
+<p><%= t ".start_date" %><%= @booking.tour_date.start_date %></p>
+<p><%= t ".price" %><%= @booking.total_price %></p>
+<p><%= t ".num_tourist" %><%= @booking.num_tourist %></p>
+
+<p><%= t "booking_mailer.sincerely" %></p>
+
+<p><%= t "booking_mailer.manager" %></p>

@@ -522,3 +522,45 @@ en:
     error_picture_size: "Should be less than 5MB"
   datepicker:
     format: "yyyy-mm-dd"
+  error:
+    num_tourist: "Number tourist cannot great than max people"
+  mailer:
+    refund_reponse: "Framgia booking tour refund reponse"
+    approve_reponse: "Framgia booking tour approve reponse"
+    cancel_reponse: "Framgia booking tour cancel reponse"
+    payment_reponse: "Framgia booking tour payment notify"
+  booking_mailer:
+    framgia: "Framgia Tour Booking"
+    address: "434 Tran Khat Tran, Ha Noi"
+    hi: "Hi"
+    sincerely: "Sincerely, Have a nive day!"
+    manager: "Framgia, Manager"
+    approve_reponse:
+      header: "Thank you for booking our tour and giving us honor to serve you.
+        We are pleased to inform your booking tour has been approved."
+      content: "This is the response of your request for the tour you booking
+        was accepted by framgia admin. As we want to always delight our
+        customer and make them part of our family. Please check booking
+        info if have something wrong don't hesitate to contact out company.
+        Booking infor:"
+      tour: "Tour: "
+      start_date: "Start date: "
+      price: "Price: "
+      num_tourist: "Number tourist: "
+    cancel_reponse:
+      header: "Thank you for booking our tour and giving us honor to serve you.
+        We are pleased to inform your cancel request has been accepted."
+      content: "This is the response of your request for the cancel tour.
+        As we want to always delight our customer and make them part of our
+        family. Thank you for your attention."
+      footer: "If you have any questions or need further information.
+        Dont't hensiate to contact us"
+    refund_reponse:
+      header: "Thank you for booking our tour and giving us honor to serve you.
+        We are pleased to inform you the refund of money has been accepted."
+      content: "This is the response of your request for the refund of your
+        money because of your cancel booking request or our tour had some
+        problem. As we want to always delight our customer and make them part of
+        our family. Please check your account to confirm that:"
+      refund: "Refund: "
+      tour_cancel: "Tour cancel: "

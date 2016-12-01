@@ -1,0 +1,19 @@
+<%= t ".framgia" %>
+<%= t ".address" %>
+
+<%= l Time.now %>
+
+<%= t ".hi" %> <%= @booking.user.name %>,
+
+<%= t ".header" %>
+
+<%= t ".content" %>
+
+<%= t ".tour" %><%= number_to_currency @booking.tour_date.tour.name %>
+<%= t ".start_date" %><%= @booking.tour_date.start_date %>
+<%= t ".price" %><%= @booking.total_price %>
+<%= t ".num_tourist" %><%= @booking.num_tourist %>
+
+<%= t ".sincerely" %>
+
+<%= t ".manager" %>
