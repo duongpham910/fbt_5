@@ -12,6 +12,7 @@ class Booking < ApplicationRecord
   validates :num_tourist, presence: true, numericality: true
   validates :contact_phone, presence: true, numericality: true,
     length: {maximum: 11, minimum: 8}
+  validate :check_number_tourrist
 
   enum status: [:waiting_pay, :paid, :approve, :reject]
 
@@ -20,5 +21,12 @@ class Booking < ApplicationRecord
   def calculate_price
     self.total_price = self.total_price -
       self.total_price * self.tour_date.tour.discount / 100
+  end
+
+  private
+  def check_number_tourrist
+    if self.num_tourist > self.tour_date.tour.num_people
+      errors.add :booking, I18n.t("error.num_tourist")
+    end
   end
 end

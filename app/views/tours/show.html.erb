@@ -9,15 +9,13 @@
         <%= number_to_currency @tour.price_per_person %>
       </p>
     </div>
-    <% if @tour.average(:quality).present? %>
-      <div class="col-md-6" align="right">
-        <p><strong><%= t ".average" %></strong>
-          <i class="fa fa-star ave_star" aria-hidden="true"></i>
-          <%= t ".average_rating", rate: @tour.average(:quality).avg,
-            max_rate: Settings.rates.max_star %>
-        </p>
-      </div>
-    <% end %>
+    <div class="col-md-6" align="right">
+      <p><strong><%= t ".average" %></strong>
+        <i class="fa fa-star ave_star" aria-hidden="true"></i>
+        <%= t ".average_rating", rate: @tour.rating,
+          max_rate: Settings.rates.max_star %>
+      </p>
+    </div>
   </div>
   <div class="row">
     <div class="col-md-6">
@@ -25,28 +23,34 @@
         <%= @tour.num_people %>
         <%= hidden_field_tag :max_people, @tour.num_people %>
       </p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-6">
+      <p><strong><%= t ".category" %></strong>
+        <%= @tour.category.name %>
+      </p>
       <p><strong><%= t ".duration" %></strong>
         <%= pluralize @tour.duration, t(".day") %>
       </p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
       <p><strong><%= t ".status" %></strong>
         <span class="status_<%= @tour.status %>">
           <%= t "status.#{@tour.status}" %>
         </span>
       </p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-6">
-      <p><strong><%= t ".discount" %>:</strong>
+      <p><strong><%= t ".discount" %></strong>
         <%= @tour.discount %>%
+      </p>
+      <p><strong><%= t ".start_dates" %></strong></p>
+      <p>
+        <% @tour.tour_dates.each do |date| %>
+          <span class="tour-date"><%= l date.start_date %></span>
+        <% end %>
+      </p>
+    </div>
+    <div class="col-md-6">
+      <p><strong><%= t ".tour_places" %></strong>
+        <p class="breadcrumb">
+          <% @tour.tour_places.each do |tour_place| %>
+            <span class="tour-place"><%= tour_place.place.name %></span>
+          <% end %>
+        </p>
       </p>
     </div>
   </div>
@@ -63,7 +67,7 @@
   <div class="tab-content">
     <div id="description"
       class="tab-pane fade in active tour_description">
-      <p><%= @tour.description %></p>
+      <p><%= @tour.description.html_safe %></p>
 
       <% if user_signed_in? %>
         <div class="row">

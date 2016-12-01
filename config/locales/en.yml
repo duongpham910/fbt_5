@@ -309,6 +309,8 @@ en:
       average_rating: "%{rate} / 5"
       please_sign_in: "Please sign-in to booking tour "
       click_here: "click here"
+      discount: "Discount: "
+      start_dates: "Start dates: "
     index:
       title: "Tours"
       nothing_to_show: "Nothing to show"
@@ -531,3 +533,5 @@ en:
     error_picture_size: "Should be less than 5MB"
   datepicker:
     format: "yyyy-mm-dd"
+  error:
+    num_tourist: "Number tourist cannot great than max people"
