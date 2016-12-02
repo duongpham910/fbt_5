@@ -5,7 +5,10 @@ class Ability
     user ||= User.new
     if user.is_admin?
       can :manage, User
-      can [:read, :create], Comment
+      can [:read, :create, :destroy], Comment
+      can [:update], Comment do |comment|
+        comment.user == user
+      end
       can [:read], Review
       can [:read, :update], Booking
       can :manage, Place
@@ -17,6 +20,9 @@ class Ability
         u == user
       end
       can [:read, :create], Comment
+      can [:update, :destroy], Comment do |comment|
+        comment.user == user
+      end
       can [:read, :create], Review
       can [:update, :destroy], Review do |review|
         review.user == user

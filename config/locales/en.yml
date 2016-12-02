@@ -351,9 +351,13 @@ en:
       review_deleted: "Review deleted"
       review_delete_fail: "Review delete fail"
     comments:
-      comment_success: "Comment added."
+      add_comment_success: "Comment added."
       cant_add_comment: "Can't add comment."
       comment_not_found: "Comment not found."
+      update_comment_success: "Comment updated."
+      cant_edit_comment: "Can't edit comment."
+      delete_comment: "Comment deleted."
+      cant_delete_comment: "Can't delete comment."
     likes:
       like_not_found: "Like not found"
       like_success: "Like success"
@@ -434,6 +438,11 @@ en:
       like: "Like"
       reply_up: "Reply"
       reply_down: "reply"
+      edit: "Edit"
+      delete: "Delete"
+      submit: "Submit"
+      edit_comment: "Edit comment"
+      close: "Close"
     form:
       please: "Please"
       login: "login"
