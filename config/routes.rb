@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   resource :user, only: :show
   resources :tours, only: [:index, :show] do
     resources :reviews, except: :index do
-      resources :comments, only: :create
+      resources :comments, except: [:index, :show, :new]
 
       get "comments/new/(:parent_id)", to: "comments#new", as: :new_comment
       get "comments/(:parent_id)", to: "comments#show", as: :show_sub_comment

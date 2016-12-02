@@ -29,13 +29,42 @@ class CommentsController < ApplicationController
       load_supports
       respond_to do |format|
         format.html do
-          flash[:success] = t "flash.comments.comment_success"
+          flash[:success] = t "flash.comments.add_comment_success"
           redirect_to tour_review_path(@tour, @review)
         end
         format.js
       end
     else
       flash[:danger] = t "flash.comments.cant_add_comment"
+      redirect_to tour_review_path(@tour, @review)
+    end
+  end
+
+  def update
+    if @comment.update_attributes comment_params
+      respond_to do |format|
+        format.html do
+          flash[:success] = t "flash.comments.update_comment_success"
+          redirect_to tour_review_path(@tour, @review)
+        end
+        format.js
+      end
+    else
+      flash[:danger] = t "flash.comments.cant_edit_comment"
+    end
+  end
+
+  def destroy
+    if @comment.destroy
+      respond_to do |format|
+        format.html do
+          flash[:success] = t "flash.delete_comment"
+          redirect_to tour_review_path(@tour, @review)
+        end
+        format.js
+      end
+    else
+      flash[:danger] = t "flash.cant_delete_comment"
       redirect_to tour_review_path(@tour, @review)
     end
   end
